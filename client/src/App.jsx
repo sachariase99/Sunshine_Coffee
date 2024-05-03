@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './layout/layout';
 import Home from './pages/home';
 import Shop from './pages/shop';
 import PageNotFound from './pages/pageNotFound';
 import Checkout from './pages/checkout';
+import Login from './pages/login';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -60,10 +71,12 @@ function App() {
   return (
     <Router>
       <Layout isCartOpen={isCartOpen} toggleCart={toggleCart} cartItems={cartItems} decreaseItem={decreaseItem} increaseItem={increaseItem}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop addToCart={addToCart} />} />
           <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Layout>

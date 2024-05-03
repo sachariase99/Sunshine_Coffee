@@ -1,6 +1,7 @@
 // Navbar.jsx
 import React from "react";
 import SunshineLogo from "./sunshineLogo";
+import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 
@@ -13,9 +14,9 @@ const Navbar = ({ isCartOpen, toggleCart }) => {
             </div>
             <IoCartOutline
                 className="h-[62px] w-auto mr-8 cursor-pointer"
-                onClick={toggleCart} // Ensure toggleCart function is called
+                onClick={toggleCart}
             />
-            <FaRegUser className="h-[62px] w-auto mr-8 cursor-pointer" />
+            <Link to="/login"><FaRegUser className="h-[62px] w-auto mr-8 cursor-pointer" /></Link>
         </nav>
     );
 };

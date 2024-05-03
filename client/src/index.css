@@ -19,3 +19,32 @@
 .font-inika {
   font-family: "Inika", sans-serif;
 }
+
+/* slideInRight animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* slideOutRight animation */
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Apply slideOutRight animation when hiding the modal */
+.hidden_animation {
+  animation: slideOutRight 0.3s ease-out forwards;
+}
