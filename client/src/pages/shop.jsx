@@ -1,24 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import Header from "../components/header"
+import ProductCards from "../components/shop/productCards"
 
-const Shop = () => {
-    const [products, setProducts] = useState([]);
-  
-    useEffect(() => {
-      fetch('http://localhost:8081/products/getAll')
-        .then(response => response.json())
-        .then(products => setProducts(products))
-        .catch(error => console.error('Error fetching products:', error));
-    }, []);
+const Shop = ({ addToCart }) => {
+    
 
     return (
-        <div className='grid grid-cols-3'>
-            {products.map(item => (
-                <div className='flex flex-col items-center' key={item.id}>
-                    <h2 className='text-2xl font-bold'>{item.name}</h2>
-                    <p className='max-w-[100%]'>{item.description}</p>
-                    <img src={item.image} alt={item.name} />
-                </div>
-            ))}
+        <div>
+            <Header />
+            <h1 className="text-[128px] font-licorice text-center mt-4 mb-8">Our picks for you</h1>
+            <ProductCards addToCart={addToCart} />
         </div>
     )
 }
