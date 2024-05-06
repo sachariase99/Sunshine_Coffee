@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import LineSpacer from '../components/lineSpacer';
 import Testimonies from '../components/testimonies';
 
-const Login = () => {
+const Login = ({ loggedInUser, setLoggedInUser }) => {
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
     const [errors, setErrors] = useState({});
-    const [loggedInUser, setLoggedInUser] = useState(null);
 
 
 
@@ -73,7 +72,7 @@ const Login = () => {
 
     return (
         <div className='font-inika'>
-            <div className='mb-64 w-[400px] m-auto'>
+            <div className='mb-64 max-w-[400px] m-auto'>
                 <h1 className='text-[128px] font-licorice text-center mt-64 mb-16'>Login</h1>
                 {loggedInUser ? (
                     <div>
@@ -81,7 +80,7 @@ const Login = () => {
                         {/* You can add additional user details here */}
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='mx-4'>
                         <div className='flex flex-col'>
                             <label htmlFor="email" className={`text-[16px] ${errors.email ? 'text-red-500' : ''}`}>
                                 {errors.email ? errors.email : 'Email'}

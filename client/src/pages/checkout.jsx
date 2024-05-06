@@ -61,7 +61,7 @@ const Checkout = ({ cartItems }) => {
     return (
         <div className='font-inika'>
             <h1 className='text-[128px] font-licorice text-center mt-64 mb-16'>Checkout</h1>
-            <div className='grid grid-cols-2 mb-16 text-xl'>
+            <div className='grid grid-cols-1 lg:grid-cols-2 mb-16 text-xl'>
                 <div className='flex flex-col items-center'>
                     <div className='w-1/2 flex flex-col'>
                         <div className='flex flex-col'>
@@ -109,7 +109,7 @@ const Checkout = ({ cartItems }) => {
                     </div>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <div className='w-1/2 h-[665px] flex flex-col justify-between'>
+                    <div className='w-1/2 mt-8 lg:mt-0 h-[550px] lg:h-[665px] flex flex-col justify-between'>
                         <div>
                             {/* Map over cartItems and render each item */}
                             {cartItems.map((item, index) => (

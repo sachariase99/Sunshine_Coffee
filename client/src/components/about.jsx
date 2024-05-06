@@ -4,7 +4,7 @@ import coffee_flower from '../assets/coffee_flower.jpg'
 
 const About = () => {
   return (
-    <div className='grid grid-cols-3 gap-8 mx-8 my-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-8 my-4'>
       <div className='flex flex-col text-center'>
         <h2 className='font-licorice text-[64px]'>The right beans</h2>
         <p className='font-inika my-4 mx-4 '>Our journey begins with a deep-rooted connection to the land, as we seek out farmers who uphold environmentally-friendly practices and prioritize the well-being of their communities. Through personal relationships and mutual respect, we collaborate closely with these farmers, understanding their methods and values.</p>

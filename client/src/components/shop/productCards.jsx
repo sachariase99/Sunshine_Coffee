@@ -18,10 +18,10 @@ const ProductCards = ({ addToCart }) => {
 
   return (
     <div>
-      <div className='grid grid-cols-3'>
+      <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'>
         {products.map(item => (
           <div className='flex flex-col m-auto' key={item.id}>
-            <h2 className='text-[96px] font-licorice mb-4'>{item.name}</h2>
+            <h2 className='text-[64px] md:text[80px] lg:text-[96px] font-licorice mb-4 text-center'>{item.name}</h2>
             <img className='object-cover h-[349px] w-[349px] rounded-lg' src={item.image} alt={item.name} />
             <p className='max-w-[349px] h-[700px] mt-8 text-[24px]'>{item.description}</p>
 

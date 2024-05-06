@@ -6,6 +6,8 @@ import Shop from './pages/shop';
 import PageNotFound from './pages/pageNotFound';
 import Checkout from './pages/checkout';
 import Login from './pages/login';
+import CookieBanner from './components/cookieBanner';
+import PrivacyPolicy from './pages/privacyPolicy';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,6 +22,7 @@ function ScrollToTop() {
 function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
@@ -75,11 +78,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop addToCart={addToCart} />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Layout>
+      <CookieBanner />
     </Router>
   );
 }
