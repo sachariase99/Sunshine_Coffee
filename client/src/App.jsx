@@ -8,6 +8,7 @@ import Checkout from './pages/checkout';
 import Login from './pages/login';
 import CookieBanner from './components/cookieBanner';
 import PrivacyPolicy from './pages/privacyPolicy';
+import Register from './pages/register';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -81,6 +82,7 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/checkout" element={<Checkout cartItems={cartItems} />} />
           <Route path="/login" element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser} />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
       </Layout>

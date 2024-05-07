@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LineSpacer from '../components/lineSpacer';
 import Testimonies from '../components/testimonies';
+import { Link } from 'react-router-dom';
 
 const Login = ({ loggedInUser, setLoggedInUser }) => {
     const [formData, setFormData] = useState({
@@ -69,33 +70,44 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
         }
     };
 
+    const handleLogout = () => {
+        // Clear the logged-in user state
+        setLoggedInUser(null);
+    };
+
 
     return (
         <div className='font-inika'>
             <div className='mb-64 max-w-[400px] m-auto'>
                 <h1 className='text-[128px] font-licorice text-center mt-64 mb-16'>Login</h1>
                 {loggedInUser ? (
-                    <div>
+                    <div className='flex flex-col items-center'>
                         <p>Welcome, {loggedInUser.email}</p>
+                        <div className='gap-2'>
+                            <button onClick={handleLogout} className='bg-black text-white text-[16px] py-4 px-16 rounded-lg mt-8'>Log out</button>
+                        </div>
                     </div>
                 ) : (
-                    <form onSubmit={handleSubmit} className='mx-4'>
-                        <div className='flex flex-col'>
-                            <label htmlFor="email" className={`text-[16px] ${errors.email ? 'text-red-500' : ''}`}>
-                                {errors.email ? errors.email : 'Email'}
-                            </label>
-                            <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className='border border-black w-full h-[46px] px-3 rounded' />
-                        </div>
-                        <div className='flex flex-col'>
-                            <label htmlFor="password" className={`text-[16px] mt-2 ${errors.password ? 'text-red-500' : ''}`}>
-                                {errors.password ? errors.password : 'Password'}
-                            </label>
-                            <input type="password" id="password" name="password" value={formData.password} onChange={handleInputChange} className='border border-black w-full h-[46px] px-3 rounded' />
-                        </div>
-                        <div className='flex justify-center gap-2'>
-                            <button type="submit" className='bg-black text-white text-[16px] py-4 px-16 rounded-lg mt-8'>Login</button>
-                        </div>
-                    </form>
+                    <div className='mx-4'>
+                        <form onSubmit={handleSubmit}>
+                            <div className='flex flex-col'>
+                                <label htmlFor="email" className={`text-[16px] ${errors.email ? 'text-red-500' : ''}`}>
+                                    {errors.email ? errors.email : 'Email'}
+                                </label>
+                                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className='border border-black w-full h-[46px] px-3 rounded' />
+                            </div>
+                            <div className='flex flex-col'>
+                                <label htmlFor="password" className={`text-[16px] mt-2 ${errors.password ? 'text-red-500' : ''}`}>
+                                    {errors.password ? errors.password : 'Password'}
+                                </label>
+                                <input type="password" id="password" name="password" value={formData.password} onChange={handleInputChange} className='border border-black w-full h-[46px] px-3 rounded' />
+                            </div>
+                            <div className='flex justify-center gap-2'>
+                                <button type="submit" className='bg-black text-white text-[16px] py-4 px-16 w-full rounded-lg mt-8'>Login</button>
+                            </div>
+                        </form>
+                        <p className='mt-2'>Not registered? <Link to="/register" className='text-sky-500 underline'>Register</Link></p>
+                    </div>
                 )}
             </div>
             <LineSpacer />
