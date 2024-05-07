@@ -77,7 +77,6 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
                 {loggedInUser ? (
                     <div>
                         <p>Welcome, {loggedInUser.email}</p>
-                        {/* You can add additional user details here */}
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className='mx-4'>

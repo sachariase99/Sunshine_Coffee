@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 const ProductCards = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
 
+  // Fetch all products
   useEffect(() => {
     fetch('http://localhost:8081/products/getAll')
       .then(response => response.json())
@@ -12,7 +13,6 @@ const ProductCards = ({ addToCart }) => {
   }, []);
 
   const handleAddToCart = (item) => {
-    console.log('Adding item to cart:', item); // Add this line to log the item
     addToCart(item);
   };
 

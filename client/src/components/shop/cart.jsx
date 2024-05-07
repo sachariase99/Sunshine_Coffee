@@ -12,7 +12,7 @@ const Cart = ({ cartItems, isCartOpen, toggleCart, decreaseItem, increaseItem })
   // Calculate tax
   const tax = totalPrice * 0.25;
 
-  // Toggle scroll on the main page
+  // When cart is open remove scroll from body
   useEffect(() => {
     if (isCartOpen) {
       document.body.classList.add('overflow-hidden');

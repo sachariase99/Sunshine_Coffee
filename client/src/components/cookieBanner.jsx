@@ -5,7 +5,7 @@ const CookieBanner = () => {
 
   const handleAccept = () => {
     // Set a cookie to remember user's consent
-    document.cookie = "cookieConsent=true; max-age=2592000"; // Max age set to 30 days (in seconds)
+    document.cookie = "cookieConsent=true; max-age=2592000"; // Expires in 30 days. Set in seconds
     setIsBannerVisible(false);
   };
 
@@ -17,7 +17,7 @@ const CookieBanner = () => {
   const cookieConsent = document.cookie.split(';').some(cookie => cookie.trim().startsWith('cookieConsent=true'));
 
   if (!isBannerVisible || cookieConsent) {
-    return null; // Don't render the banner if the user has already accepted cookies
+    return null; // If the user already has accepted cookie, don't render the banner.
   }
 
   return (

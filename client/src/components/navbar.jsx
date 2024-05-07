@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 
-const Navbar = ({ isCartOpen, toggleCart }) => {
+const Navbar = ({ toggleCart }) => {
     return (
         <nav className="bg-[#111111] h-[116px] text-white flex items-center justify-end fixed top-0 w-full z-10">
             <SunshineLogo />
